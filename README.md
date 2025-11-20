@@ -5,15 +5,16 @@ This project explores the fundamentals of N-gram language models, demonstrating 
 
 
 ## Table of Contents
-Introduction
-Methodology
-Key Findings
-Model Comparison (Bigram vs. Trigram)
-Limitations of N-gram Models
-Conclusion and Next Steps
-Usage
-Installation
-References
+
+## Introduction
+## Methodology
+## Key Findings
+## Model Comparison (Bigram vs. Trigram)
+## Limitations of N-gram Models
+## Conclusion and Next Steps
+## Usage
+## Installation
+## References
 
 
 
