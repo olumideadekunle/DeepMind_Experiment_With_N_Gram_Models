@@ -1,8 +1,10 @@
-N-Gram Language Model Experiment
+## N-Gram Language Model Experiment
 Project Overview
 This project explores the fundamentals of N-gram language models, demonstrating their construction, application in text generation, and inherent limitations, particularly data sparsity. Using the Africa Galore dataset, we built and compared bigram and trigram models to understand how context length impacts model performance and coherence.
 
-Table of Contents
+
+
+## Table of Contents
 Introduction
 Methodology
 Key Findings
@@ -12,26 +14,33 @@ Conclusion and Next Steps
 Usage
 Installation
 References
-Introduction
+
+
+
+
+
+## Introduction
 N-gram models are foundational in natural language processing (NLP) for estimating the probability of word sequences. This lab focused on building such models to predict the next token in a sequence, a core task in text generation. The primary objective was to gain a practical understanding of how n-grams capture language patterns and to identify the challenges associated with them.
 
-Methodology
+## Methodology
 Dataset: We utilized the Africa Galore dataset, a collection of synthetically generated paragraphs focusing on African culture, history, and geography.
 Tokenization: Text was tokenized into word-like units using a simple space tokenizer.
 N-gram Counting: Functions were developed to extract and count n-grams (unigrams, bigrams, trigrams) from the tokenized dataset.
-Probability Estimation: Conditional probabilities 
- 
- were calculated based on these n-gram counts.
-Text Generation: An iterative process was implemented to generate new text by sampling the next token based on the estimated probabilities, given a preceding context.
+Probability Estimation: Conditional probabilities were calculated based on these n-gram counts.
+
+
+## Text Generation: An iterative process was implemented to generate new text by sampling the next token based on the estimated probabilities, given a preceding context.
 Key Findings
 N-gram Generation and Counting: Successfully implemented functions to generate and count n-grams of varying lengths.
 Significant Data Sparsity: A high degree of data sparsity was observed, with 99.95% of possible bigrams and 99.98% of possible trigrams having zero occurrences in the dataset. This highlights a fundamental challenge for n-gram models.
 Model Construction: Successfully built and tested n-gram language models that convert counts into conditional probabilities.
-Model Comparison (Bigram vs. Trigram)
+
+
+## Model Comparison (Bigram vs. Trigram)
 Feature	Bigram Model	Trigram Model
-Coherence & Grammatical Correctness	Tended to produce less coherent and grammatically awkward continuations.	Generally produced more sensible and grammatically correct continuations due to considering a larger context (two preceding words). Example: "Jide was hungry so she went looking for a cup of Kenyan chai, rich and peanut-infused, or spicy" (more coherent) vs. "Jide was hungry so she went looking for the day in the bread are cooked with warm temperatures" (less coherent).
-Data Sparsity	Lower sparsity (99.95% zero counts).	Higher sparsity (99.98% zero counts), making it more prone to failing to find continuations for unseen contexts.
-Failure Rate	Less prone to failing to find continuations.	More prone to failing (e.g., KeyError for unseen contexts like trigram_model['Their name']).
+Coherence & Grammatical Correctness	tended to produce less coherent and grammatically awkward continuations.	Generally produced more sensible and grammatically correct continuations due to considering a larger context (two preceding words). Example: "Jide was hungry so she went looking for a cup of Kenyan chai, rich and peanut-infused, or spicy" (more coherent) vs. "Jide was hungry so she went looking for the day in the bread are cooked with warm temperatures" (less coherent).
+Data Sparsity	Lower sparsity (99.95% zero counts).	Higher sparsity (99.98% zero counts) makes it more prone to failing to find continuations for unseen contexts.
+Failure Rate	is less prone to failing to find continuations.	More prone to failing (e.g., KeyError for unseen contexts like trigram_model['Their name']).
 Data Sparsity Visualization
 import matplotlib.pyplot as plt
 
@@ -59,7 +68,7 @@ Fixed Context Size: The 'n' value is rigid, limiting adaptability to different l
 Conclusion and Next Steps
 N-gram models offer a simple yet powerful approach to language modeling, capable of capturing local word patterns. However, their inherent vulnerability to data sparsity limits their applicability, particularly with larger 'n' values or smaller datasets.
 
-Future Improvements:
+##Future Improvements:
 
 Smoothing Techniques: Implement smoothing algorithms (e.g., Laplace smoothing, Kneser-Ney smoothing) to address zero probabilities for unseen n-grams and improve model robustness.
 Back-off Models: Explore combining models of different 'n' values (e.g., backing off to a bigram model if a trigram is unseen) to provide more consistent predictions.
@@ -67,17 +76,17 @@ Comparison with Advanced Models: Investigate more sophisticated models, such as 
 Usage
 To use the N-gram models developed in this notebook:
 
-Run all cells in sequence to define the necessary functions and build the models.
+##Run all cells in sequence to define the necessary functions and build the models.
 Utilize generate_next_n_tokens function with your desired prompt, n value (for bigram or trigram), and num_tokens_to_generate to create new text continuations.
 # Example usage:
 prompt = "Jide was hungry so she went looking for"
 # For a bigram model (n=2)
 generate_next_n_tokens(n=2, ngram_model=bigram_model, prompt=prompt, num_tokens_to_generate=10)
 
-# For a trigram model (n=3)
+## For a trigram model (n=3)
 generate_next_n_tokens(n=3, ngram_model=trigram_model, prompt=prompt, num_tokens_to_generate=10)
 Installation
 This project runs in a Google Colab environment. All necessary packages are installed via pip commands within the notebook (e.g., pandas, ai_foundations). Ensure your Colab environment is set up and all cells are run sequentially.
 
-References Credit To:
+## References Credit To:
 Ronen Eldan and Yuanzhi Li. 2023. Tiny Stories: How Small Can Language Models Be and Still Speak Coherent English. arXiv:2305.07759. Retrieved from https://arxiv.org/pdf/2305.07759.
